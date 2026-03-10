@@ -45,6 +45,7 @@ Pipeline rigour and explainability (Day 3 TFT) is the real value.
 ## Project Structure
 notebooks/
   FinSight_Day1.ipynb      — EDA + ARIMA baseline
+  
   FinSight_Day2_LSTM.ipynb — LSTM training pipeline
 models/
   (saved weights added from Day 3 onwards)
