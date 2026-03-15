@@ -329,6 +329,67 @@ with tab2:
         yaxis_title="Portfolio Value (₹)")
     st.plotly_chart(fig_eq, use_container_width=True)
 
+    # ── Daily P&L Chart ───────────────────────────────────
+    st.subheader("📊 Daily P&L — Buy & Hold Strategy")
+
+    bh_values  = np.array(bh_port[:min_len])
+    daily_pnl  = np.diff(bh_values)
+    daily_pct  = (daily_pnl / bh_values[:-1]) * 100
+    pnl_dates  = df.index[1:min_len]
+
+    # Colour each bar green or red
+    bar_colors = ["#1a6b72" if p > 0
+                  else "#b84c1e"
+                  for p in daily_pct]
+
+    fig_pnl = go.Figure()
+
+    # Daily P&L bars
+    fig_pnl.add_trace(go.Bar(
+        x      = pnl_dates,
+        y      = daily_pct,
+        name   = "Daily Return %",
+        marker_color = bar_colors,
+        opacity      = 0.8
+    ))
+
+    # Zero line
+    fig_pnl.add_hline(
+        y=0,
+        line_dash  = "solid",
+        line_color = "black",
+        line_width = 0.8)
+
+    fig_pnl.update_layout(
+        height      = 350,
+        template    = "plotly_white",
+        yaxis_title = "Daily Return %",
+        xaxis_title = "Date",
+        title       = "Green = Profit Day | Red = Loss Day"
+    )
+    st.plotly_chart(fig_pnl, use_container_width=True)
+
+    # ── P&L Summary Stats ─────────────────────────────────
+    profit_days = np.sum(daily_pct > 0)
+    loss_days   = np.sum(daily_pct < 0)
+    best_day    = daily_pct.max()
+    worst_day   = daily_pct.min()
+    avg_day     = daily_pct.mean()
+
+    col1, col2, col3, col4, col5 = st.columns(5)
+    col1.metric("Profit Days",
+                f"{profit_days}",
+                f"{profit_days/len(daily_pct)*100:.1f}%")
+    col2.metric("Loss Days",
+                f"{loss_days}",
+                f"-{loss_days/len(daily_pct)*100:.1f}%")
+    col3.metric("Best Day",
+                f"{best_day:+.2f}%")
+    col4.metric("Worst Day",
+                f"{worst_day:+.2f}%")
+    col5.metric("Avg Daily",
+                f"{avg_day:+.3f}%")
+
     st.subheader("🏆 PPO V3 Results — Reliance 2024")
     col1, col2, col3, col4 = st.columns(4)
     col1.metric("Total Return", "-5.47%",
