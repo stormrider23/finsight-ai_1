@@ -1,15 +1,19 @@
 # FinSight AI 🧠
 ### Financial Time Series Forecasting + RL Trading Agent
+
 **Author:** Suman Das — Senior Applied Scientist, Financial AI
 **Stack:** Python · PyTorch · Reinforcement Learning · Streamlit
-**Domain:** 10 years Banking (PNB) + MTech AI (Jadavpur University, CGPA 9.79)
+**Domain:** 11 yrs Banking (PNB) + MTech IAR (Jadavpur University, CGPA 9.79)
+
+## 🚀 Live Demo
+👉 **https://finsight-ai-9qwq8uhnwckfp2vxx9ch4b.streamlit.app/**
 
 ## Project Goal
 End-to-end Financial AI system combining:
 - LSTM / GRU / Temporal Fusion Transformer for price forecasting
 - PPO Reinforcement Learning agent for portfolio optimization
 - BalancedTradingEnv with inactivity penalty for active trading
-- Live Streamlit dashboard (coming Day 6)
+- Live Streamlit dashboard with real-time market data
 
 ## Progress
 - [x] Day 1 — Data pipeline, EDA, stationarity tests, ARIMA baseline
@@ -17,8 +21,8 @@ End-to-end Financial AI system combining:
 - [x] Day 3 — Temporal Fusion Transformer + attention heatmap
 - [x] Day 4 — RL Environment, Gymnasium TradingEnv, random agent baseline
 - [x] Day 5 — PPO V1+V2+V3 trained, BalancedTradingEnv, bear market analysis
-- [ ] Day 6 — Streamlit dashboard
-- [ ] Day 7 — GitHub polish + profile launch
+- [x] Day 6 — Streamlit dashboard live, 3 tabs, permanent public URL
+- [ ] Day 7 — GitHub polish + Upwork/Fiverr profile launch
 
 ## Assets Covered
 NIFTY50 · Reliance · TCS · Bitcoin (2019-2024)
@@ -35,11 +39,11 @@ NIFTY50 · Reliance · TCS · Bitcoin (2019-2024)
 |----------------|-------------|--------|--------------|--------------------|
 | PPO V1         | 0.00%       | 0.000  | 0.00%        | Cash preservation  |
 | PPO V2         | 0.00%       | 0.000  | 0.00%        | Cash preservation  |
-| PPO V3         | -5.47%      | -0.745 | -7.79%       | Active trading ⭐  |
+| PPO V3 ⭐      | -5.47%      | -0.745 | -7.79%       | Active trading     |
 | Buy & Hold     | -18.08%     | -0.963 | -24.46%      | Market benchmark   |
 | Random Agent   | -14.37%     | -1.456 | -16.07%      | Random baseline    |
 
-PPO V3 outperformed Buy & Hold by +12.61% in a bear market.
+PPO V3 outperformed Buy & Hold by +12.61% in bear market.
 Max drawdown reduced from 24.46% to 7.79% — 16.67% improvement.
 
 ## RL Agent Evolution Story
@@ -83,6 +87,11 @@ notebooks/
   FinSight_Day3_TFT.ipynb            — TFT + attention heatmap
   FinSight_Day4_RL_Environment.ipynb — Custom Gymnasium environment
   FinSight_Day5_PPO_Agent.ipynb      — PPO V1+V2+V3 training + backtest
+  FinSight_Day6_Dashboard.ipynb      — Streamlit dashboard notebook
+
+dashboard/
+  app.py                             — Streamlit dashboard
+  requirements.txt                   — Dependencies
 
 models/
   ppo_trading_agent.zip              — PPO V1 weights
@@ -99,3 +108,4 @@ visuals/
 ## Contact
 📧 suman.ju.ai@gmail.com
 🔗 linkedin.com/in/suman-das-6b0749276
+💻 github.com/suman-ju-ai
