@@ -91,7 +91,7 @@ Autoencoder anomaly detection.
 - [x] Day 1-2 — EDA, SMOTE, 5 models trained and compared
 - [x] Day 3   — SHAP Explainability + V14 analysis
 - [x] Day 4   — Autoencoder V1+V2, AUC-ROC=0.9289
-- [ ] Day 5   — FastAPI Real-Time Scoring Endpoint
+- [x] Day 5 — FastAPI real-time scoring, SHAP explanation per prediction
 - [ ] Day 6   — Streamlit Fraud Analyst Dashboard
 - [ ] Day 7   — GitHub Polish + New Fiverr Gig
 
