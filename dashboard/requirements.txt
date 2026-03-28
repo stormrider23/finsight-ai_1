@@ -1,13 +1,10 @@
 streamlit
-numpy
 pandas
-matplotlib
+numpy
 plotly
-scikit-learn
+joblib
 yfinance
 torch
+scikit-learn
 stable-baselines3
 gymnasium
-xgboost
-shap
-joblib
