@@ -6,5 +6,3 @@ joblib
 shap
 xgboost
 scikit-learn
-yfinance
-ta
