@@ -1,8 +1,13 @@
 streamlit
-pandas
 numpy
+pandas
+matplotlib
 plotly
-joblib
-shap
-xgboost
 scikit-learn
+yfinance
+torch
+stable-baselines3
+gymnasium
+xgboost
+shap
+joblib
