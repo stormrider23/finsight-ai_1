@@ -320,9 +320,28 @@ with tab2:
 
             features_df = pd.DataFrame(
                 [features], columns=FEATURE_COLS)
-            scaled      = scaler.transform(features_df)
-            scaled_df   = pd.DataFrame(
-                scaled, columns=FEATURE_COLS)
+
+            # --- Fix: align inference features with training schema ---
+            try:
+                expected_cols = scaler.feature_names_in_
+
+                # add missing columns
+                for col in expected_cols:
+                    if col not in features_df.columns:
+                        features_df[col] = 0
+
+                # reorder to match training
+                features_df = features_df[expected_cols]
+
+                scaled = scaler.transform(features_df)
+                scaled_df = pd.DataFrame(
+                    scaled, columns=expected_cols)
+
+            except AttributeError:
+                # fallback if scaler trained without feature names
+                scaled = scaler.transform(features_df.values)
+                scaled_df = pd.DataFrame(
+                    scaled, columns=FEATURE_COLS)
 
             prob     = float(
                 xgb_model.predict_proba(scaled)[0][1])
