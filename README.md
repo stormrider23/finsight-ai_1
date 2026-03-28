@@ -5,8 +5,9 @@
 **Stack:** Python · PyTorch · XGBoost · Reinforcement Learning · Streamlit · FastAPI
 **Domain:** 11 yrs Banking (PNB) + MTech IAR (Jadavpur University, CGPA 9.79)
 
-## 🚀 Live Demo
-👉 **https://finsight-ai-9qwq8uhnwckfp2vxx9ch4b.streamlit.app/**
+## 🚀 Live Demos
+👉 **FinSight AI — https://finsight-ai-9qwq8uhnwckfp2vxx9ch4b.streamlit.app/**
+👉 **FraudShield AI — https://financial-ai-portfolio-xu26nxhqgy8awu8eyq79cu.streamlit.app/**
 
 ---
 
@@ -91,9 +92,17 @@ Autoencoder anomaly detection.
 - [x] Day 1-2 — EDA, SMOTE, 5 models trained and compared
 - [x] Day 3   — SHAP Explainability + V14 analysis
 - [x] Day 4   — Autoencoder V1+V2, AUC-ROC=0.9289
-- [x] Day 5 — FastAPI real-time scoring, SHAP explanation per prediction
-- [ ] Day 6   — Streamlit Fraud Analyst Dashboard
+- [x] Day 5   — FastAPI real-time scoring, SHAP explanation per prediction
+- [x] Day 6   — Streamlit Fraud Analyst Dashboard — live demo deployed
 - [ ] Day 7   — GitHub Polish + New Fiverr Gig
+
+### FraudShield Day 6 — Streamlit Dashboard
+3-tab interactive dashboard deployed at:
+👉 https://financial-ai-portfolio-xu26nxhqgy8awu8eyq79cu.streamlit.app/
+
+Tab 1 — Overview      : 283K transaction stats, fraud rate by hour charts
+Tab 2 — Live Scorer   : Real-time XGBoost scoring + SHAP explanation + gauge
+Tab 3 — Model Compare : Full 7-model results table + precision/F1 charts
 
 ### Dataset
 Credit Card Fraud Detection (Kaggle)
@@ -156,10 +165,13 @@ Combined — Complete fraud coverage system
 - SHAP TreeExplainer — regulatory-grade explainability
 - Autoencoder trained on legitimate only — unsupervised detection
 - Two-layer fraud system — supervised + unsupervised combined
+- Streamlit + Plotly — interactive fraud analyst dashboard
+- scaler.transform(.values) — feature name schema fix
 
 ---
 
 ## Project Structure
+```
 notebooks/
   FinSight_Day1.ipynb                    — EDA + ARIMA baseline
   FinSight_Day2_LSTM.ipynb               — LSTM training pipeline
@@ -170,9 +182,14 @@ notebooks/
   FraudShield_Day1_Day2_EDA_Models.ipynb — EDA + 5 models
   FraudShield_Day3_SHAP.ipynb            — SHAP explainability
   FraudShield_Day4_Autoencoder.ipynb     — Autoencoder V1+V2
+  FraudShield_Day6_Streamlit.ipynb       — Streamlit dashboard build
 
 dashboard/
   app.py                                 — FinSight Streamlit app
+  requirements.txt                       — Dependencies
+
+fraudshield/
+  fraudshield_app.py                     — FraudShield Streamlit app
   requirements.txt                       — Dependencies
 
 models/
@@ -196,8 +213,9 @@ visuals/
   shap_v14_analysis.png                  — V14 feature analysis
   autoencoder_training_loss.png          — Training convergence
   autoencoder_error_dist.png             — Reconstruction error dist
-  autoencoder_threshold.png              — Threshold optimisation
+  autoencoder_threshold.png             — Threshold optimisation
   autoencoder_final_results.png          — Complete model comparison
+```
 
 ## Contact
 📧 suman.ju.ai@gmail.com
