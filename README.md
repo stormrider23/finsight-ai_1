@@ -6,8 +6,8 @@
 **Domain:** 11 yrs Banking (PNB) + MTech IAR (Jadavpur University, CGPA 9.79)
 
 ## 🚀 Live Demos
-👉 **FinSight AI — https://finsight-ai-9qwq8uhnwckfp2vxx9ch4b.streamlit.app/**
-👉 **FraudShield AI — https://financial-ai-portfolio-xu26nxhqgy8awu8eyq79cu.streamlit.app/**
+👉 **FinSight AI:** https://finsight-ai-9qwq8uhnwckfp2vxx9ch4b.streamlit.app/
+👉 **FraudShield AI:** https://financial-ai-portfolio-xu26nxhqgy8awu8eyq79cu.streamlit.app/
 
 ---
 
@@ -92,17 +92,9 @@ Autoencoder anomaly detection.
 - [x] Day 1-2 — EDA, SMOTE, 5 models trained and compared
 - [x] Day 3   — SHAP Explainability + V14 analysis
 - [x] Day 4   — Autoencoder V1+V2, AUC-ROC=0.9289
-- [x] Day 5   — FastAPI real-time scoring, SHAP explanation per prediction
-- [x] Day 6   — Streamlit Fraud Analyst Dashboard — live demo deployed
-- [ ] Day 7   — GitHub Polish + New Fiverr Gig
-
-### FraudShield Day 6 — Streamlit Dashboard
-3-tab interactive dashboard deployed at:
-👉 https://financial-ai-portfolio-xu26nxhqgy8awu8eyq79cu.streamlit.app/
-
-Tab 1 — Overview      : 283K transaction stats, fraud rate by hour charts
-Tab 2 — Live Scorer   : Real-time XGBoost scoring + SHAP explanation + gauge
-Tab 3 — Model Compare : Full 7-model results table + precision/F1 charts
+- [x] Day 5   — FastAPI real-time scoring, SHAP per prediction
+- [x] Day 6   — Streamlit fraud analyst dashboard deployed
+- [x] Day 7   — GitHub polish + Fiverr gig + LinkedIn published
 
 ### Dataset
 Credit Card Fraud Detection (Kaggle)
@@ -125,6 +117,13 @@ Layer 1 — XGBoost Base : 94.94% precision, 4 FP
 Layer 2 — Autoencoder  : AUC-ROC 0.9289
            Best for new unknown fraud patterns
 Combined — Complete fraud coverage system
+
+### FastAPI Endpoints
+- GET  /          — API info
+- GET  /health    — Model health check
+- POST /predict   — Single transaction scoring + SHAP
+- POST /predict/batch — Batch transaction scoring
+- GET  /docs      — Auto-generated Swagger UI
 
 ### SHAP Explainability Results
 - Top 5 features  : V14, V4, V12, V10, V3
@@ -163,15 +162,14 @@ Combined — Complete fraud coverage system
 - Log transform on Amount — reduces skewness
 - Hour of day feature — temporal fraud pattern signal
 - SHAP TreeExplainer — regulatory-grade explainability
-- Autoencoder trained on legitimate only — unsupervised detection
-- Two-layer fraud system — supervised + unsupervised combined
-- Streamlit + Plotly — interactive fraud analyst dashboard
-- scaler.transform(.values) — feature name schema fix
+- Autoencoder trained on legitimate only — unsupervised
+- Two-layer fraud system — supervised + unsupervised
+- FastAPI with Pydantic validation — production REST API
+- Real-time SHAP explanation per prediction
 
 ---
 
 ## Project Structure
-```
 notebooks/
   FinSight_Day1.ipynb                    — EDA + ARIMA baseline
   FinSight_Day2_LSTM.ipynb               — LSTM training pipeline
@@ -182,22 +180,21 @@ notebooks/
   FraudShield_Day1_Day2_EDA_Models.ipynb — EDA + 5 models
   FraudShield_Day3_SHAP.ipynb            — SHAP explainability
   FraudShield_Day4_Autoencoder.ipynb     — Autoencoder V1+V2
-  FraudShield_Day6_Streamlit.ipynb       — Streamlit dashboard build
+  FraudShield_Day5_FastAPI.ipynb         — FastAPI deployment
 
 dashboard/
   app.py                                 — FinSight Streamlit app
-  requirements.txt                       — Dependencies
-
-fraudshield/
   fraudshield_app.py                     — FraudShield Streamlit app
-  requirements.txt                       — Dependencies
+  requirements.txt                       — FinSight dependencies
+  fraudshield_xgb_model.pkl             — FraudShield XGBoost
+  fraudshield_scaler.pkl                 — Feature scaler
 
 models/
   ppo_trading_agent.zip                  — PPO V1 weights
   ppo_finsight_v2_optimized.zip          — PPO V2 weights
   ppo_balanced_agent_v3.zip              — PPO V3 weights (best)
   fraudshield_xgb_model.pkl             — FraudShield XGBoost
-  fraudshield_autoencoder_best.pth       — Autoencoder best weights
+  fraudshield_autoencoder_best.pth       — Autoencoder weights
 
 visuals/
   tft_attention.png                      — TFT attention heatmap
@@ -212,12 +209,12 @@ visuals/
   shap_legit_explanation.png             — Legit waterfall plot
   shap_v14_analysis.png                  — V14 feature analysis
   autoencoder_training_loss.png          — Training convergence
-  autoencoder_error_dist.png             — Reconstruction error dist
-  autoencoder_threshold.png             — Threshold optimisation
-  autoencoder_final_results.png          — Complete model comparison
-```
+  autoencoder_error_dist.png             — Reconstruction error
+  autoencoder_threshold.png              — Threshold optimisation
+  autoencoder_final_results.png          — Complete comparison
 
 ## Contact
 📧 suman.ju.ai@gmail.com
 🔗 linkedin.com/in/suman-das-6b0749276
 💻 github.com/suman-ju-ai
+🎯 Upwork: upwork.com/freelancers/sumandas
